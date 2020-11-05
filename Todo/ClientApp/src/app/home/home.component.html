@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>To do:</h1>
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let todo of todos">{{todo?.description}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <form [formGroup]="TodoAddForm" class="form" (ngSubmit)="addTodo()">
+        <div class="form-group row">
+          <label for="todo" class="col-sm-1 col-form-label font-weight-bold">Task</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="todo" placeholder="What do you need to add?" formControlName="todo">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" [disabled]="!TodoAddForm.valid">Save Item</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
